@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ORHID — постельное бельё и домашний текстиль в Душанбе</title>
+<meta name="description" content="Постельное бельё из сатина, 100 % хлопок, от производителя. Полуторные комплекты от 220 сомони, детские от 160. Рассрочка с картой Салом, доставка по Душанбе — 20 сомони.">
+<meta property="og:title" content="ORHID — постельное бельё в Душанбе">
+<meta property="og:description" content="Сатин, 100 % хлопок, от производителя. Комплекты от 220 сомони, доставка по Душанбе.">
+<meta property="og:type" content="website">
+<!-- Абсолютный URL обязателен: по относительному пути WhatsApp и Telegram
+     не подтянут картинку. Поправить после выкладки, если адрес другой. -->
+<meta property="og:url" content="https://sbstudio-lan.github.io/orhid/">
+<meta property="og:image" content="https://sbstudio-lan.github.io/orhid/img/hero-pled.jpg">
+<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="800">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#5E2B57">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" as="font" type="font/woff2" href="vendor/fonts/CormorantGaramond-500-600-cyrillic.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="vendor/fonts/Manrope-cyrillic.woff2" crossorigin>
+<link rel="stylesheet" href="vendor/fonts.css">
+<link rel="stylesheet" href="styles.css">
+<!-- Флаг до первой отрисовки: начальные состояния анимаций применяются
+     только когда JS жив. Без скриптов страница полностью видима. -->
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Знак: стилизованная орхидея — три чашелистика, два лепестка и губа -->
+    <symbol id="mark" viewBox="0 0 40 40">
+      <g fill="#F4E3E7" stroke="currentColor" stroke-width="1.3">
+        <ellipse cx="20" cy="10.5" rx="4.3" ry="8.5"/>
+        <ellipse cx="20" cy="10.5" rx="4.3" ry="8.5" transform="rotate(130 20 20)"/>
+        <ellipse cx="20" cy="10.5" rx="4.3" ry="8.5" transform="rotate(-130 20 20)"/>
+        <ellipse cx="20" cy="11.8" rx="6" ry="7.4" transform="rotate(66 20 20)"/>
+        <ellipse cx="20" cy="11.8" rx="6" ry="7.4" transform="rotate(-66 20 20)"/>
+      </g>
+      <path d="M16.8 22c0-1.9 1.4-3.2 3.2-3.2s3.2 1.3 3.2 3.2c0 2.5-1.9 4.2-3.2 5.3-1.3-1.1-3.2-2.8-3.2-5.3Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="ic-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1l-2.22 2.23Z"/></symbol>
+    <symbol id="ic-ig" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.26.07 1.64.07 4.85s0 3.6-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.26.06-1.64.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.4 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.14 0-3.5.01-4.74.07-.9.04-1.38.19-1.7.31-.43.17-.73.37-1.06.69-.32.32-.52.63-.69 1.05-.12.33-.27.81-.31 1.71C3.44 8.87 3.43 9.23 3.43 12s.01 3.13.07 4.37c.4.9.19 1.38.31 1.7.17.43.37.74.69 1.06.33.32.63.52 1.05.69.33.12.81.27 1.71.31 1.24.06 1.6.07 4.74.07s3.5-.01 4.74-.07c.9-.04 1.38-.19 1.7-.31.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.05.12-.33.27-.81.31-1.71.06-1.24.07-1.6.07-4.37s-.01-3.13-.07-4.37c-.04-.9-.19-1.38-.31-1.7-.17-.43-.37-.74-.69-1.06a2.85 2.85 0 0 0-1.05-.69c-.33-.12-.81-.27-1.71-.31C15.5 4.01 15.14 4 12 4Zm0 3.05a4.95 4.95 0 1 1 0 9.9 4.95 4.95 0 0 1 0-9.9Zm0 1.8a3.15 3.15 0 1 0 0 6.3 3.15 3.15 0 0 0 0-6.3Zm5.15-3.26a1.16 1.16 0 1 1 0 2.32 1.16 1.16 0 0 1 0-2.32Z"/></symbol>
+    <!-- линейные иконки преимуществ -->
+    <symbol id="ic-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="ic-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15Z"/><path d="M5 19 14 10"/></symbol>
+    <symbol id="ic-box" viewBox="0 0 24 24"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></symbol>
+    <symbol id="ic-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></symbol>
+    <symbol id="ic-truck" viewBox="0 0 24 24"><path d="M2.5 6h11v10h-11zM13.5 9.5h4l3 3.5v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-header" id="header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="ORHID — на главную">
+      <svg class="logo-mark" aria-hidden="true"><use href="#mark"></use></svg>
+      <span class="logo-text"><span class="logo-name">ORHID</span><span class="logo-sub">home tekstil</span></span>
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="catalog.html">Каталог</a>
+      <a href="#why">Почему мы</a>
+      <a href="#how">Как купить</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary btn-sm header-phone" href="tel:+992999999999" aria-label="Позвонить: +992 99 999 99 99">
+      <svg aria-hidden="true"><use href="#ic-phone"></use></svg><span>+992 99 999 99 99</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== Хиро ===== -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow js-intro">Домашний текстиль · Душанбе</span>
+        <h1 class="js-split">Бельё, в котором <em>хочется</em> остаться подольше</h1>
+        <p class="hero-text js-intro">Сатин из <b>100&nbsp;% хлопка</b> напрямую от производителя. Полуторные комплекты — <b>от 220 сомони</b>, детские — <b>от 160</b>. Перед покупкой можно открыть и всё рассмотреть.</p>
+        <div class="hero-actions js-intro">
+          <a class="btn btn-primary js-magnetic" href="tel:+992999999999">
+            <svg aria-hidden="true"><use href="#ic-phone"></use></svg>Позвонить и выбрать
+          </a>
+          <a class="btn btn-ghost" href="catalog.html">Смотреть каталог</a>
+        </div>
+        <ul class="hero-perks js-intro">
+          <li>Рассрочка с картой «Салом»</li>
+          <li>Доставка по городу — 20 сомони</li>
+        </ul>
+      </div>
+
+      <div class="hero-media">
+        <figure class="shot shot-main">
+          <picture>
+            <source type="image/webp" srcset="img/hero-pled-480.webp 480w, img/hero-pled.webp 601w" sizes="(max-width: 1000px) 82vw, 470px">
+            <img src="img/hero-pled.jpg" width="601" height="752" alt="Кровать, застеленная хлопковыми пледами с бахромой" fetchpriority="high">
+          </picture>
+        </figure>
+        <figure class="shot shot-sub">
+          <picture>
+            <source type="image/webp" srcset="img/print-magnolia-480.webp 480w, img/print-magnolia.webp 601w" sizes="220px">
+            <img src="img/print-magnolia.jpg" width="601" height="752" alt="Сатин с крупной магнолией на жёлтом фоне">
+          </picture>
+        </figure>
+        <div class="price-badge" aria-label="Комплекты от 220 сомони"><span>комплект<b>от 220</b>сомони</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Доверие ===== -->
+  <section class="trust" aria-label="Коротко о нас">
+    <div class="wrap trust-grid">
+      <div class="trust-item"><b data-count="100" data-suffix="&nbsp;%">100&nbsp;%</b><span>хлопок, сатиновое плетение</span></div>
+      <div class="trust-item"><b data-count="3737">3&nbsp;737</b><span>подписчиков в Instagram</span></div>
+      <div class="trust-item"><b data-count="40" data-suffix="+">40+</b><span>моделей в каталоге</span></div>
+      <div class="trust-item"><b data-count="20" data-suffix="&nbsp;с.">20&nbsp;с.</b><span>доставка по Душанбе</span></div>
+    </div>
+  </section>
+
+  <!-- ===== Категории ===== -->
+  <section class="section" id="catalog">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow js-reveal">Что у нас есть</span>
+        <h2 class="h2 js-reveal">Для спальни, детской <em>и стола</em></h2>
+        <p class="lead js-reveal">Цены — как в нашем Instagram. Расцветки быстро разбирают, поэтому наличие проще уточнить по телефону.</p>
+      </div>
+
+      <div class="cats">
+        <a class="cat js-card js-tilt" href="catalog.html#sets">
+          <div class="cat-img"><picture><source type="image/webp" srcset="img/set-roses-480.webp 480w, img/set-roses.webp 556w" sizes="(max-width: 560px) 92vw, (max-width: 960px) 46vw, 400px"><img src="img/set-roses.jpg" width="556" height="417" alt="Полуторный комплект с крупными розами" loading="lazy"></picture></div>
+          <div class="cat-body"><div><h3>Полуторные комплекты</h3><p>Сатин, 100 % хлопок</p></div><span class="cat-price"><small>от</small>220 с.</span></div>
+        </a>
+        <a class="cat js-card js-tilt" href="catalog.html#kids">
+          <div class="cat-img"><picture><source type="image/webp" srcset="img/kids-stars-480.webp 480w, img/kids-stars.webp 545w" sizes="(max-width: 560px) 92vw, (max-width: 960px) 46vw, 400px"><img src="img/kids-stars.jpg" width="545" height="408" alt="Комплект с цифровой печатью в упаковке" loading="lazy"></picture></div>
+          <div class="cat-body"><div><h3>Цифровая печать</h3><p>Яркий рисунок на весь пододеяльник</p></div><span class="cat-price"><small>от</small>260 с.</span></div>
+        </a>
+        <a class="cat js-card js-tilt" href="catalog.html#kids">
+          <div class="cat-img"><picture><source type="image/webp" srcset="img/kids-beep-480.webp 480w, img/kids-beep.webp 533w" sizes="(max-width: 560px) 92vw, (max-width: 960px) 46vw, 400px"><img src="img/kids-beep.jpg" width="533" height="400" alt="Детский комплект с машинками" loading="lazy"></picture></div>
+          <div class="cat-body"><div><h3>Детские в кроватку</h3><p>Машинки, рыбки, сердечки</p></div><span class="cat-price"><small>от</small>160 с.</span></div>
+        </a>
+        <a class="cat js-card js-tilt" href="catalog.html#home">
+          <div class="cat-img"><picture><source type="image/webp" srcset="img/pillow-480.webp 480w, img/pillow.webp 1015w" sizes="(max-width: 560px) 92vw, (max-width: 960px) 46vw, 400px"><img src="img/pillow.jpg" width="1015" height="761" alt="Стёганая подушка в упаковке" loading="lazy"></picture></div>
+          <div class="cat-body"><div><h3>Подушки</h3><p>50×75 и 70×70, шелкопряд</p></div><span class="cat-price"><small>штука</small>170 с.</span></div>
+        </a>
+        <a class="cat js-card js-tilt" href="catalog.html#home">
+          <div class="cat-img"><picture><source type="image/webp" srcset="img/hero-pled-480.webp 480w, img/hero-pled.webp 601w" sizes="(max-width: 560px) 92vw, (max-width: 960px) 46vw, 400px"><img src="img/hero-pled.jpg" width="601" height="752" alt="Плед и покрывало из хлопка" loading="lazy"></picture></div>
+          <div class="cat-body"><div><h3>Плед + покрывало</h3><p>Хлопок, 210×230</p></div><span class="cat-price"><small>набор</small>350 с.</span></div>
+        </a>
+        <a class="cat js-card js-tilt" href="catalog.html#cloths">
+          <div class="cat-img"><picture><source type="image/webp" srcset="img/cloth-strawberry-480.webp 480w, img/cloth-strawberry.webp 601w" sizes="(max-width: 560px) 92vw, (max-width: 960px) 46vw, 400px"><img src="img/cloth-strawberry.jpg" width="601" height="451" alt="Скатерть с вышитой земляникой и красной клеткой" loading="lazy"></picture></div>
+          <div class="cat-body"><div><h3>Скатерти</h3><p>Кружево, клеёнка, под лён</p></div><span class="cat-price"><small>от</small>90 с.</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Почему мы ===== -->
+  <section class="section why" id="why">
+    <div class="wrap why-grid">
+      <div class="why-media js-reveal">
+        <figure class="shot">
+          <picture>
+            <source type="image/webp" srcset="img/print-lily-480.webp 480w, img/print-lily.webp 601w" sizes="(max-width: 900px) 90vw, 480px">
+            <img src="img/print-lily.jpg" width="601" height="752" alt="Сатин с крупными сиреневыми лилиями" loading="lazy">
+          </picture>
+        </figure>
+        <div class="why-note"><b>Не линяет и не катается</b>Стирайте в машинке в деликатном режиме — ткань остаётся гладкой.</div>
+      </div>
+
+      <div>
+        <div class="section-head" style="margin-bottom:0">
+          <span class="eyebrow js-reveal">Почему ORHID</span>
+          <h2 class="h2 js-reveal">Сначала посмотрите — <em>потом</em> покупайте</h2>
+        </div>
+        <ul class="why-list">
+          <li class="js-reveal"><span class="why-ic"><svg aria-hidden="true"><use href="#ic-eye"></use></svg></span><div><h3>Просмотр перед покупкой</h3><p>Откройте упаковку, потрогайте ткань, проверьте размер. Не понравилось — не берёте.</p></div></li>
+          <li class="js-reveal"><span class="why-ic"><svg aria-hidden="true"><use href="#ic-leaf"></use></svg></span><div><h3>100 % хлопок, сатин</h3><p>Плотность чувствуется сразу. Наполнитель одеял — синтепон, не сбивается в комки.</p></div></li>
+          <li class="js-reveal"><span class="why-ic"><svg aria-hidden="true"><use href="#ic-box"></use></svg></span><div><h3>Напрямую от производителя</h3><p>Без посредников — поэтому комплект из хлопка стоит 220 сомони.</p></div></li>
+          <li class="js-reveal"><span class="why-ic"><svg aria-hidden="true"><use href="#ic-card"></use></svg></span><div><h3>Рассрочка с картой «Салом»</h3><p>Берите сразу на всю семью, платите частями.</p></div></li>
+          <li class="js-reveal"><span class="why-ic"><svg aria-hidden="true"><use href="#ic-truck"></use></svg></span><div><h3>Доставка — 20 сомони</h3><p>Привезём в любой район Душанбе.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Лента расцветок ===== -->
+  <section class="section prints" aria-labelledby="prints-title">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow js-reveal">Сейчас в наличии</span>
+        <h2 class="h2 js-reveal" id="prints-title">Выберите <em>свою</em> расцветку</h2>
+      </div>
+    </div>
+    <!-- В ленте без loading="lazy": картинки въезжают трансформом,
+         и ленивая подгрузка оставляет их пустыми. -->
+    <div class="marquee" id="marquee">
+      <div class="marquee-track">
+        <figure><picture><source type="image/webp" srcset="img/set-tropic-480.webp"><img src="img/set-tropic.jpg" width="522" height="391" alt="Расцветка «Тропики»" fetchpriority="low"></picture></figure>
+        <figure><picture><source type="image/webp" srcset="img/set-cosmos-480.webp"><img src="img/set-cosmos.jpg" width="601" height="451" alt="Расцветка «Космея»" fetchpriority="low"></picture></figure>
+        <figure><picture><source type="image/webp" srcset="img/set-garden-480.webp"><img src="img/set-garden.jpg" width="522" height="391" alt="Расцветка «Сад»" fetchpriority="low"></picture></figure>
+        <figure><picture><source type="image/webp" srcset="img/set-check-grey-480.webp"><img src="img/set-check-grey.jpg" width="601" height="451" alt="Расцветка «Серая клетка»" fetchpriority="low"></picture></figure>
+        <figure><picture><source type="image/webp" srcset="img/set-tulip-480.webp"><img src="img/set-tulip.jpg" width="601" height="451" alt="Расцветка «Тюльпаны»" fetchpriority="low"></picture></figure>
+        <figure><picture><source type="image/webp" srcset="img/set-lavender-480.webp"><img src="img/set-lavender.jpg" width="533" height="400" alt="Расцветка «Лаванда»" fetchpriority="low"></picture></figure>
+        <figure><picture><source type="image/webp" srcset="img/set-hearts-480.webp"><img src="img/set-hearts.jpg" width="601" height="451" alt="Расцветка «Сердечки»" fetchpriority="low"></picture></figure>
+        <figure><picture><source type="image/webp" srcset="img/set-pink-480.webp"><img src="img/set-pink.jpg" width="533" height="400" alt="Расцветка «Цветение»" fetchpriority="low"></picture></figure>
+        <figure><picture><source type="image/webp" srcset="img/set-iris-480.webp"><img src="img/set-iris.jpg" width="522" height="391" alt="Расцветка «Ирис»" fetchpriority="low"></picture></figure>
+        <figure><picture><source type="image/webp" srcset="img/set-leaves-480.webp"><img src="img/set-leaves.jpg" width="601" height="451" alt="Расцветка «Листья»" fetchpriority="low"></picture></figure>
+      </div>
+    </div>
+    <div class="prints-cta"><a class="btn btn-ghost" href="catalog.html">Все расцветки и цены</a></div>
+  </section>
+
+  <!-- ===== Как купить ===== -->
+  <section class="section" id="how" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow js-reveal">Как купить</span>
+        <h2 class="h2 js-reveal">Четыре шага <em>до новой</em> спальни</h2>
+      </div>
+      <ol class="steps" style="padding:0;list-style:none">
+        <li class="step js-step"><span class="step-n">01</span><h3>Выберите</h3><p>Расцветку в каталоге или в нашем Instagram — можно просто сделать скриншот.</p></li>
+        <li class="step js-step"><span class="step-n">02</span><h3>Позвоните</h3><p>Уточним наличие и размер, подскажем, что подойдёт к вашей кровати.</p></li>
+        <li class="step js-step"><span class="step-n">03</span><h3>Получите</h3><p>Курьер привезёт по Душанбе за 20 сомони. Откройте и проверьте при нём.</p></li>
+        <li class="step js-step"><span class="step-n">04</span><h3>Оплатите</h3><p>Сразу или в рассрочку с картой «Салом».</p></li>
+      </ol>
+
+      <div class="also js-reveal" style="margin-top:clamp(48px,6vw,80px)">
+        <div>
+          <h3>Ещё в наличии — уточняйте по телефону</h3>
+          <ul class="chips">
+            <li>Двуспальные комплекты</li>
+            <li>Односпальные</li>
+            <li>Простыни</li>
+            <li>Одеяла</li>
+            <li>Бельё Daisy</li>
+          </ul>
+        </div>
+        <a class="btn btn-primary" href="tel:+992999999999"><svg aria-hidden="true"><use href="#ic-phone"></use></svg>Спросить наличие</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Фото покупателя ===== -->
+  <section class="section why" aria-labelledby="review-title">
+    <div class="wrap review">
+      <figure class="shot js-reveal">
+        <picture>
+          <source type="image/webp" srcset="img/review-bed.webp">
+          <img src="img/review-bed.jpg" width="345" height="230" alt="Детская кровать с комплектом ORHID — фото покупателя" loading="lazy">
+        </picture>
+      </figure>
+      <div class="review-copy">
+        <span class="eyebrow js-reveal">Фото от покупателя</span>
+        <h2 class="h2 js-reveal" id="review-title">Так комплект выглядит <em>дома</em></h2>
+        <p class="lead js-reveal">Покупатели присылают фото уже застеленных кроватей. Этот комплект тоже есть в наличии. Больше отзывов — в разделе «отзывы» нашего Instagram.</p>
+        <a class="btn btn-ghost js-reveal" href="https://www.instagram.com/orhid.home.tekstil/" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#ic-ig"></use></svg>Смотреть отзывы
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Финальный призыв ===== -->
+  <section class="section" id="contacts">
+    <div class="wrap">
+      <div class="cta js-reveal">
+        <div>
+          <h2>Позвоните — <em>подберём</em> комплект под вашу кровать</h2>
+          <p>Расскажем, какие расцветки есть сегодня, и привезём по Душанбе. Звонок ни к чему не обязывает.</p>
+        </div>
+        <div class="cta-side">
+          <a class="cta-phone" href="tel:+992999999999">+992 99 999 99 99</a>
+          <a class="btn btn-light js-magnetic" href="tel:+992999999999"><svg aria-hidden="true"><use href="#ic-phone"></use></svg>Позвонить</a>
+          <p class="cta-meta">Душанбе · доставка 20 сомони<br>Instagram: <a href="https://www.instagram.com/orhid.home.tekstil/" target="_blank" rel="noopener">@orhid.home.tekstil</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <a class="logo" href="#top" aria-label="ORHID — наверх">
+        <svg class="logo-mark" aria-hidden="true"><use href="#mark"></use></svg>
+        <span class="logo-text"><span class="logo-name">ORHID</span><span class="logo-sub">home tekstil</span></span>
+      </a>
+      <nav class="footer-links" aria-label="Ссылки">
+        <a href="catalog.html">Каталог</a>
+        <a href="#why">Почему мы</a>
+        <a href="#how">Как купить</a>
+        <a href="tel:+992999999999">+992 99 999 99 99</a>
+        <a href="https://www.instagram.com/orhid.home.tekstil/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© <span id="year">2026</span> ORHID home tekstil · Душанбе</p>
+  </div>
+</footer>
+
+<a class="btn btn-primary callbar" id="callbar" href="tel:+992999999999"><svg aria-hidden="true"><use href="#ic-phone"></use></svg>Позвонить</a>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/SplitText.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
