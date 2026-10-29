@@ -10,7 +10,11 @@
 
 Названия расцветок условные — придуманы по рисунку, у магазина их нет.
 Код поста — последняя часть ссылки instagram.com/p/<код>/, по нему
-карточка ведёт на видео товара.
+карточка ведёт на видео товара. Вместо кода можно дать полную ссылку
+(например, на хайлайт). Пустая цена — «Цена по звонку».
+
+Пятый элемент раздела — плашка с ценой в заголовке. Если она есть,
+карточки раздела компактные: без описания и цены, по пять в ряд.
 """
 
 import html
@@ -23,11 +27,15 @@ PHONE = '+992999999999'
 
 SET_META = 'Сатин, 100 % хлопок'
 
-# раздел | картинка | название | описание | цена | приписка к цене | код поста
+HL_DV = 'https://www.instagram.com/stories/highlights/18352794574205742/'
+DV_META = 'Двуспальный комплект'
+
+# раздел | заголовок | подводка | товары | плашка с ценой (необязательно)
+# товар: картинка | название | описание | цена | приписка к цене | код поста или ссылка
 SECTIONS = [
     ('sets', 'Полуторные комплекты',
      'В комплекте: пододеяльник 160×210, простыня 160×210, наволочка 50×75. '
-     'Не выцветают и не покрываются катышками.',
+     'Сатин, 100 % хлопок — не выцветает и не покрывается катышками.',
      [
          ('set-roses', 'Розы', SET_META, '220', '', 'De45gUgIoIG'),
          ('set-tropic', 'Тропики', SET_META, '220', '', 'De6MxIHIyEq'),
@@ -50,6 +58,19 @@ SECTIONS = [
          ('set-garden', 'Сад', SET_META, '220', '', 'Dei47DcIR6m'),
          ('set-hearts', 'Сердечки', SET_META, '220', '', 'Dei3I0zoxX0'),
          ('print-pomegranate', 'Гранат', SET_META, '220', '', 'De6PChQobEA'),
+     ], 'Любая расцветка — 220 смн'),
+    ('double', 'Двуспальные комплекты',
+     'Фото — из нашего раздела «2-х спальные» в Instagram. Цены и размеры зависят '
+     'от модели, поэтому назовём их по телефону.',
+     [
+         ('dv-lavender', 'Лаванда', DV_META, '', '', HL_DV),
+         ('dv-peony', 'Пионы', DV_META, '', '', HL_DV),
+         ('dv-graphite', 'Графит', DV_META, '', '', HL_DV),
+         ('dv-peach', 'Персик', DV_META, '', '', HL_DV),
+         ('dv-mint', 'Мята', DV_META, '', '', HL_DV),
+         ('dv-cappuccino', 'Капучино', DV_META, '', '', HL_DV),
+         ('dv-watercolor', 'Акварель', DV_META, '', '', HL_DV),
+         ('dv-champagne', 'Шампань', DV_META, '', '', HL_DV),
      ]),
     ('kids', 'Детские комплекты',
      'Хлопковый сатин. Полуторные с цифровой печатью — рисунок во весь пододеяльник; '
@@ -104,20 +125,43 @@ def jpeg_size(path):
     raise ValueError(f'не JPEG: {path}')
 
 
-def card(img, title, meta, price, unit, code):
+def card(img, title, meta, price, unit, code, compact=False):
     w, h = jpeg_size(ROOT / 'img' / f'{img}.jpg')
     t = html.escape(title)
-    pre = f'<small>{unit}</small> ' if unit == 'от' else ''
-    post = f' <small>{unit}</small>' if unit and unit != 'от' else ''
+    link = code if code.startswith('http') else f'https://www.instagram.com/p/{code}/'
+    ig_label = f'«{t}» в Instagram'
+    pic = (f'<div class="product-img"><picture><source type="image/webp" '
+           f'srcset="img/{img}-480.webp 480w, img/{img}.webp {w}w" '
+           f'sizes="(max-width: 380px) 92vw, (max-width: 760px) 46vw, (max-width: 1100px) 31vw, 290px">'
+           f'<img src="img/{img}.jpg" width="{w}" height="{h}" alt="{t}" loading="lazy"></picture></div>')
+    ig = (f'<a class="product-ig" href="{link}" target="_blank" rel="noopener" aria-label="{ig_label}">'
+          f'<svg aria-hidden="true"><use href="#ic-ig"></use></svg></a>')
+    if compact:
+        return f'''        <article class="product product-compact js-card">
+          {pic}
+          <div class="product-body">
+            <h3>{t}</h3>
+            <div class="product-actions">
+              <a class="product-call" href="tel:{PHONE}" aria-label="Позвонить и заказать «{t}»"><svg aria-hidden="true"><use href="#ic-phone"></use></svg></a>
+              {ig}
+            </div>
+          </div>
+        </article>'''
+    if price:
+        pre = f'<small>{unit}</small> ' if unit == 'от' else ''
+        post = f' <small>{unit}</small>' if unit and unit != 'от' else ''
+        price_html = f'<p class="product-price">{pre}{price} смн{post}</p>'
+    else:
+        price_html = '<p class="product-price product-price-ask">Цена — по звонку</p>'
     return f'''        <article class="product js-card">
-          <div class="product-img"><picture><source type="image/webp" srcset="img/{img}-480.webp 480w, img/{img}.webp {w}w" sizes="(max-width: 380px) 92vw, (max-width: 760px) 46vw, (max-width: 1100px) 31vw, 290px"><img src="img/{img}.jpg" width="{w}" height="{h}" alt="{t}" loading="lazy"></picture></div>
+          {pic}
           <div class="product-body">
             <h3>{t}</h3>
             <p class="product-meta">{html.escape(meta)}</p>
-            <p class="product-price">{pre}{price} смн{post}</p>
+            {price_html}
             <div class="product-actions">
               <a class="btn btn-primary btn-sm" href="tel:{PHONE}" aria-label="Позвонить и заказать «{t}»"><svg aria-hidden="true"><use href="#ic-phone"></use></svg><span>Заказать</span></a>
-              <a class="product-ig" href="https://www.instagram.com/p/{code}/" target="_blank" rel="noopener" aria-label="Видео «{t}» в Instagram"><svg aria-hidden="true"><use href="#ic-ig"></use></svg></a>
+              {ig}
             </div>
           </div>
         </article>'''
@@ -125,15 +169,18 @@ def card(img, title, meta, price, unit, code):
 
 def main():
     parts = []
-    for sid, title, lead, items in SECTIONS:
-        cards = '\n'.join(card(*it) for it in items)
+    for sid, title, lead, items, *rest in SECTIONS:
+        badge = rest[0] if rest else ''
+        cards = '\n'.join(card(*it, compact=bool(badge)) for it in items)
+        badge_html = f'<span class="shelf-badge">{badge}</span>' if badge else ''
+        grid = 'products products-compact' if badge else 'products'
         parts.append(f'''    <section class="shelf" id="{sid}" aria-labelledby="{sid}-title">
       <div class="wrap">
         <div class="shelf-head">
-          <h2 id="{sid}-title" class="js-reveal">{title}</h2>
+          <div class="js-reveal"><h2 id="{sid}-title">{title}</h2>{badge_html}</div>
           <p class="js-reveal">{lead}</p>
         </div>
-        <div class="products">
+        <div class="{grid}">
 {cards}
         </div>
       </div>
